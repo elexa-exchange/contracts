@@ -1,0 +1,8 @@
+node_modules/
+build/
+
+# Deployment secrets: TON_DEPLOYER_MNEMONIC and friends. These words are the
+# wallet — anything that reaches a repository is compromised.
+.env
+.env.*
+!.env.example

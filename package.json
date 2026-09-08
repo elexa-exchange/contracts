@@ -1,0 +1,28 @@
+{
+  "name": "elexa-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Non-custodial escrow contracts for the Elexa P2P exchange (BNB Smart Chain and TRON)",
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "coverage": "hardhat coverage",
+    "deploy:testnet": "DEPLOY_ENV=testnet hardhat run scripts/deploy.ts --network bscTestnet",
+    "deploy:mainnet": "DEPLOY_ENV=mainnet hardhat run scripts/deploy.ts --network bsc",
+    "verify:testnet": "DEPLOY_ENV=testnet hardhat verify --network bscTestnet",
+    "verify:mainnet": "DEPLOY_ENV=mainnet hardhat verify --network bsc",
+    "export-abi": "hardhat run scripts/export-abi.ts",
+    "deploy:tron-shasta": "DEPLOY_ENV=testnet TRON_NETWORK=shasta hardhat run scripts/deploy-tron.ts --network hardhat",
+    "deploy:tron": "DEPLOY_ENV=mainnet TRON_NETWORK=mainnet hardhat run scripts/deploy-tron.ts --network hardhat",
+    "tron:admin": "DEPLOY_ENV=testnet TRON_NETWORK=shasta hardhat run scripts/tron-admin.ts --network hardhat",
+    "tron:admin:mainnet": "DEPLOY_ENV=mainnet TRON_NETWORK=mainnet hardhat run scripts/tron-admin.ts --network hardhat"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.15",
+    "tronweb": "^6.4.0",
+    "typescript": "^5.6.3"
+  }
+}
