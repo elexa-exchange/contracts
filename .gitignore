@@ -6,3 +6,15 @@ dist
 .env
 .env.*
 !.env.example
+
+out/
+
+forge-cache/
+
+broadcast/
+
+lib/
+
+NOTES.local.md
+
+foundry.lock
