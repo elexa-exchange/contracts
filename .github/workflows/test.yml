@@ -1,0 +1,36 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Hardhat tests
+        run: npm test
+
+      - name: Install forge-std
+        run: forge install foundry-rs/forge-std --no-commit
+
+      - name: Foundry tests
+        run: forge test -vvv
+        env:
+          # Fork test skips cleanly if unset / unreachable; CI stays deterministic.
+          BSC_RPC_URL: ${{ secrets.BSC_RPC_URL }}
