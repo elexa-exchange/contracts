@@ -16,3 +16,5 @@ broadcast/
 lib/
 
 NOTES.local.md
+
+foundry.lock
